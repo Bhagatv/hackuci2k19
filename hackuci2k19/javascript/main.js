@@ -49,10 +49,13 @@
 
 
 //ON SEARCH
-$( "#searchForm" ).submit(function( event ) {
-  
+$( "#searchClicked" ).click(function(){
 
-  
+
+	var inputText = $("#search").val();
+	var url = new URL(inputText);
+	console.log(url.searchParams.get("v"));
+	window.location.replace('/main.html?id=' + url.searchParams.get("v"));
 });
 
 
