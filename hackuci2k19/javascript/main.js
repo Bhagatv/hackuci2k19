@@ -41,7 +41,7 @@ $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'post',
     headers: {
-        Authorization: 'Client-ID 411884bfc3a81ee'
+        Authorization: 'Client-ID bce3a7d973c9293'
     },
     data: {
         image: lol
@@ -140,6 +140,8 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
+                	min: 0,
+           			max: 100,
                     beginAtZero:true
                 }
             }]
