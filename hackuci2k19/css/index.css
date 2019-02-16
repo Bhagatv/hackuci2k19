@@ -1,15 +1,23 @@
+html {
+    scroll-behavior: smooth;
+  }
+
 #landing-info{
     padding-right:40px;
 }
 
-.landing-container{
-    margin-top:40px;
+#landing-info h1 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
-.icon-container{
-    min-width:240px;
-    min-height:300px;
-    border:1px solid black;
+#landing-info p{
+    font-size:14px;
+}
+
+.landing-container{
+    margin-top:40px;
 }
 
 .navbar{
@@ -20,12 +28,10 @@
     color:white !important;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-#landing-info p{
-    font-size:14px;
+.icon-container{
+    min-width:240px;
+    min-height:300px;
+    border:1px solid black;
 }
 
 .card-title{
