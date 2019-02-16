@@ -1,22 +1,11 @@
-
-//ON LOAD
-$( document ).ready(function() {
-
-	//receives parameters passed into the URL
+//receives parameters passed into the URL
 	var urlParams = new URLSearchParams(window.location.search);
 
-});
+	var id = urlParams.get("id");
+	console.log("d")
 
-//ON SEARCH
-$( "#searchForm" ).submit(function( event ) {
-  
-
-  
-});
-
-
-//YOUTUBE API CODE EXAMPLE
-var tag = document.createElement('script');
+	//YOUTUBE API CODE////////////////////////////////////////////////
+	var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -29,7 +18,7 @@ var tag = document.createElement('script');
         player = new YT.Player('player', {
           height: '390',
           width: '640',
-          videoId: 'M7lc1UVf-VE',
+          videoId: id,
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -55,4 +44,15 @@ var tag = document.createElement('script');
       function stopVideo() {
         player.stopVideo();
       }
+ ///////////////////////////////////////////
+
+
+
+//ON SEARCH
+$( "#searchForm" ).submit(function( event ) {
+  
+
+  
+});
+
 
