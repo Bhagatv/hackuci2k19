@@ -37,11 +37,12 @@ ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 var link;
 var lol = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
 
+
 $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'post',
     headers: {
-        Authorization: 'Client-ID bce3a7d973c9293'
+        Authorization: 'Client-ID 040e94cc45d44df'
     },
     data: {
         image: lol
@@ -141,7 +142,7 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                 	min: 0,
-           			max: 100,
+           			max: 1,
                     beginAtZero:true
                 }
             }]
@@ -176,6 +177,8 @@ run_capture = (state) => {
 	if(time < 30)
 	mod = currentTime % 2;
 
+	//DEMONSTRATION PURPOSES
+	mod = currentTime % 8;
 
 
 	console.log("mod: " + mod);
