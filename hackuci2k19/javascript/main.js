@@ -3,8 +3,9 @@
 	var time = 0;
 	var id = urlParams.get("id");
 	var youtube_player_state = -1;
+	var empty = {};
 	var timestamp_to_imgur = {};
-
+	timestamp_to_imgur[id] = {};
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //VIDEO CANVAS////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,19 +29,19 @@ canvas.height = video.videoHeight;
 var ctx = canvas.getContext('2d');
 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 //console.log(canvas.toDataURL());
-img.src = canvas.toDataURL();
+//img.src = canvas.toDataURL();
 
 
 
 
 var link;
 var lol = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
-/**
+
 $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'post',
     headers: {
-        Authorization: 'Client-ID c5034654d9f801a'
+        Authorization: 'Client-ID 411884bfc3a81ee'
     },
     data: {
         image: lol
@@ -49,10 +50,12 @@ $.ajax({
     success: function(response) {
         if(response.success) {
             link = response.data.link;
+            timestamp_to_imgur[id][currentTime] = link;
+            console.log(timestamp_to_imgur);
         }
     }
 });
-**/
+
 
 
 }
@@ -100,6 +103,17 @@ run_capture = (state) => {
 	console.log(state);
 	if(state == 0){
 		clearInterval(t);
+		$.ajax({
+    url: 'https://60debd7d.ngrok.io/',
+    type: 'post',
+    data: timestamp_to_imgur,
+    dataType: 'json',
+    success: function(response) {
+        if(response.success) {
+            console.log("Ended... RESPONSE DATA: " + response.data);
+        }
+    }
+});
 	}
 	else if(state == 1){
 	let currentTime = Math.trunc(player.getCurrentTime());
