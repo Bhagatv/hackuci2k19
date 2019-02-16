@@ -99,19 +99,70 @@ $.ajax({
       }
  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+produce_end_results = (response) => {
+
+	var personalData = [response.anger.avg, response.contempt.avg, response.disgust.avg, response.fear.avg, response.happiness.avg, response.neutral.avg, response.sadness.avg, response.surprise.avg];
+
+/////PERSONAL BAR GRAPH/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var ctx = document.getElementById("personalBarGraph").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness"],
+        datasets: [{
+            label: 'Personal Bar Graph',
+            data: personalData,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+
 run_capture = (state) => {
 	console.log(state);
 	if(state == 0){
 		clearInterval(t);
 		$.ajax({
-    url: 'https://60debd7d.ngrok.io/',
+    url: 'http://60debd7d.ngrok.io/',
     type: 'post',
-    data: timestamp_to_imgur,
+    data: JSON.stringify(timestamp_to_imgur),
     dataType: 'json',
     success: function(response) {
-        if(response.success) {
-            console.log("Ended... RESPONSE DATA: " + response.data);
-        }
+        
+            console.log(JSON.stringify(response));
+        	produce_end_results(response);
     }
 });
 	}
@@ -119,6 +170,11 @@ run_capture = (state) => {
 	let currentTime = Math.trunc(player.getCurrentTime());
 	console.log("currenTime: "+ currentTime);
 	let mod = currentTime % 4;
+
+	if(time < 30)
+	mod = currentTime % 2;
+
+
 
 	console.log("mod: " + mod);
 

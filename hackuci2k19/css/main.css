@@ -2,7 +2,10 @@
 width: 300px;
 
 }
-
+.row{
+	border: solid;
+	
+}
 #player{
 	margin-top:40px;
  
