@@ -1,3 +1,14 @@
+// Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+ 
+ /** var config = {
+          "apiKey": "AIzaSyALHsoFjWeyBkIH0Ta2npk1VhDljU6axCk",
+          "authDomain": "hackuci2019-71642.firebaseapp.com",
+          "databaseURL": "https://hackuci2019-71642.firebaseio.com",
+          "storageBucket": "hackuci2019-71642.appspot.com",
+        };
+  firebase.initializeApp(config);
+**/
 //receives parameters passed into the URL///////////////////////////////////////////////////////////////////////////
 	var urlParams = new URLSearchParams(window.location.search);
 	var time = 0;
@@ -103,8 +114,12 @@ $.ajax({
 
 produce_end_results = (response) => {
 
-	var personalData = [response.anger.avg, response.contempt.avg, response.disgust.avg, response.fear.avg, response.happiness.avg, response.neutral.avg, response.sadness.avg, response.surprise.avg];
+	let personalData = [response.anger.avg, response.contempt.avg, response.disgust.avg, response.fear.avg, response.happiness.avg, response.neutral.avg, response.sadness.avg, response.surprise.avg];
+	let high_happy_url = response.happiness.highest.img_url;
+	let high_happy_timestamp = response.happiness.highest.timestamp;
 
+	let high_sadness_url = response.sadness.highest.img_url;
+	let high_sadness_timestamp = response.sadness.highest.timestamp;
 /////PERSONAL BAR GRAPH/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	var ctx = document.getElementById("personalBarGraph").getContext('2d');
 var myChart = new Chart(ctx, {
@@ -150,6 +165,38 @@ var myChart = new Chart(ctx, {
     }
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//SUMMARY GRAPH////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var ctx2 = document.getElementById("summarySpiderGraph");
+var myChart = new Chart(ctx2, {
+    type: 'radar',
+    data: {labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness"],
+    	datasets: [
+                {
+                    label: "You",
+                    fillColor: "rgba(0,140,232,.4)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    data: personalData
+                        
+                    
+                }
+            ]
+	},
+    options: {}
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Set highest happiness and sadness moments
+console.log("High URL: " + high_happy_url);
+console.log("Sad URL: " + high_sadness_url);
+document.getElementById("highHappy").src = high_happy_url;
+document.getElementById("highSadness").src = high_sadness_url;
+
+
+
 }
 
 
