@@ -1,25 +1,51 @@
+.navbar{
+    background-color: #003366 !important;
+}
+
+.navbar-brand{
+    color:white !important;
+}
+
+.page-title{
+    display:inline-block;
+    padding-left:10px;
+    font-size:28px;
+}
+
+.logo{
+    margin-bottom:10px;
+}
+
+.form-control {
+    width:400px !important;
+}
+
 .profile{
     position: relative;
     display: inline;
 }
 
 .pic{
-    width: 540px;
-    height: 720px;
-    padding: 100px;
+    width: 240px;
+    height: 320px;
 }
 
 h1{
-    font-size: 144px;
+    font-size: 72px;
     font-weight: bold;
 }
 
 h2{
-    font-size: 72px;
+    font-size: 48px;
     font-style: italic;
 }
 
 h3{
-    font-size: 48px;
+    font-size: 36px;
     font-weight: bold;
+}
+
+#content{
+    background-image: url("https://drive.google.com/file/d/1UQidVdyYys5PLUSaaZCZkp4eZRQaRfH1/view?fbclid=IwAR2MYILGpTBvAPrhrWWsE742mKsetKmS5HC7gaAOmBFycnQ0Oz9hOvLOhekhttps://drive.google.com/file/d/1UQidVdyYys5PLUSaaZCZkp4eZRQaRfH1/view?fbclid=IwAR2MYILGpTBvAPrhrWWsE742mKsetKmS5HC7gaAOmBFycnQ0Oz9hOvLOhek");
+    background: linear-gradient(-45deg, #35577D, #141E30);
 }

@@ -21,38 +21,51 @@
         <link href="./css/members.css" type="text/css" rel="stylesheet">
     </head>
     
-    <body>
+    <body id="content">
         <header class="text-center">
+            <nav class="navbar fixed-top navbar-light bg-light justify-content-between">
+                <a class="col-lg-2 navbar-brand" href="./index.html">
+                    <img class = 'logo' src="./images/Logo.png" width="36" height="36" alt="">
+                    <div class = 'page-title'>Emocean</div>
+                </a>
+
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+                    <button class="btn btn-info my-2 my-sm-0" type="button" id="searchClicked">Search</button>
+                </form>
+            </nav>
             <h1>Team Members</h1>
             <h2>Let's get this bread!</h2>
         </header>
 
         <main>
-            
-                        <section class="profile">
+            <div class="container text-center">
+                <div class="row">
+                        <section class="profile col-sm-3">
                                 <img src="./images/Angela.jpg" class="mx-auto rounded-circle pic"/>
                                 <h3>Angela Li</h3>
                                 <h4>3rd Year CS Major</h4>
                             </section>
                             
-                            <section class="profile">
+                            <section class="profile col-sm-3">
                                 <img src="./images/John.jpg" class="mx-auto rounded-circle pic"/>
                                 <h3>John Wang</h3>
                                 <h4>3rd Year CS Major</h4>
                             </section>
                             
-                            <section class="profile">
+                            <section class="profile col-sm-3">
                                 <img src="./images/Steve.jpg" class="mx-auto rounded-circle pic"/>
                                 <h3>Steve Ng</h3>
                                 <h4>4th Year CS Major</h4>
                             </section>
                             
-                            <section class="profile">
+                            <section class="profile col-sm-3">
                                 <img src="./images/Veeral.jpg" class="mx-auto rounded-circle pic"/>
                                 <h3>Veeral Bhagat</h3>
-                                <h4>3rd Year CSE Major</h4>
+                                <h4>3rd Year CS Major</h4>
                             </section>
-                    
+                </div>
+            </div>
         </main>
     </body>
 </html>
