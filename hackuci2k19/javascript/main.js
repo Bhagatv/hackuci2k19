@@ -8,11 +8,11 @@
 	var empty = {};
 	var timestamp_to_imgur = {};
 	timestamp_to_imgur[id] = {};
+  var summary = {};
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Initialize Firebase
   // TODO: Replace with your project's customized code snippet
-
   	var config = {
           "apiKey": "AIzaSyALHsoFjWeyBkIH0Ta2npk1VhDljU6axCk",
           "authDomain": "hackuci2019-71642.firebaseapp.com",
@@ -23,10 +23,15 @@
 
  	var database = firebase.database().ref();
 
- 	database.child("yt_urls").child('summary').on("value", function(snap){
-		var summary = snap.val();
+
+  return_summary = () => {
+ 	database.child("yt_urls").child(id).child('summary').on("value", function(snap){
+		summary = snap.val();
 		console.log(summary);
 	});
+ }
+ return_summary();
+
 
 //VIDEO CANVAS////////////////////////////////////////////////////////////////////////////////////////////////
       		var video = document.querySelector("#videoElement");
@@ -122,7 +127,8 @@ $.ajax({
 
 
 produce_end_results = (response) => {
-
+  return_summary();
+  let summaryData = [summary.anger, summary.content, summary.disgust, summary.fear, summary.happiness, summary.neutral, summary.sadness, summary.surprise];
 	let personalData = [response.anger.avg, response.contempt.avg, response.disgust.avg, response.fear.avg, response.happiness.avg, response.neutral.avg, response.sadness.avg, response.surprise.avg];
 	let high_happy_url = response.happiness.highest.img_url;
 	let high_happy_timestamp = response.happiness.highest.timestamp;
@@ -199,7 +205,7 @@ var myChart = new Chart(ctx, {
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(255,99,132,1)",
           pointBorderColor: "#fff",
-          data: [0.1,0.1,0.2,0.2,0.1,0.1,0.1,0.1]
+          data: summaryData
         }
       ]
     },
