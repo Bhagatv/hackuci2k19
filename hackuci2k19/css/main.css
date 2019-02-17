@@ -9,8 +9,10 @@ width: 300px;
 	margin-top: 2px;
 }
 #summary-container{
-	margin-top: 8px;
+	margin-top: 12px;
     width:250px;
+    border:10px solid #e9ecef;
+    background-color:#e9ecef;
 }
 
 .emoji{
@@ -35,6 +37,7 @@ width: 300px;
 
 #player{
 	margin-top:40px;
+    border: 10px solid #e9ecef;
 
 }
 
@@ -50,8 +53,10 @@ width: 300px;
 }
 #videoElement {
 	margin-top:40px;
-	max-width:250px;
-	max-height:150px;
+	width:250px;
+    border: 10px solid #e9ecef;
+
+
 }
 
 #player-container{
