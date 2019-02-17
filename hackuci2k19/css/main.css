@@ -5,6 +5,11 @@ html {
 width: 300px;
 
 }
+
+img{
+	height: 40px !important;
+
+}
 .navbar{
     background-color: #003366 !important;
 }
