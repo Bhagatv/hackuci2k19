@@ -1,5 +1,14 @@
-
-
+// Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+ 
+ /** var config = {
+          "apiKey": "AIzaSyALHsoFjWeyBkIH0Ta2npk1VhDljU6axCk",
+          "authDomain": "hackuci2019-71642.firebaseapp.com",
+          "databaseURL": "https://hackuci2019-71642.firebaseio.com",
+          "storageBucket": "hackuci2019-71642.appspot.com",
+        };
+  firebase.initializeApp(config);
+**/
 //receives parameters passed into the URL///////////////////////////////////////////////////////////////////////////
 	var urlParams = new URLSearchParams(window.location.search);
 	var time = 0;
@@ -8,36 +17,13 @@
 	var empty = {};
 	var timestamp_to_imgur = {};
 	timestamp_to_imgur[id] = {};
-  var summary = {};
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Initialize Firebase
-  // TODO: Replace with your project's customized code snippet
-  	var config = {
-          "apiKey": "AIzaSyALHsoFjWeyBkIH0Ta2npk1VhDljU6axCk",
-          "authDomain": "hackuci2019-71642.firebaseapp.com",
-          "databaseURL": "https://hackuci2019-71642.firebaseio.com",
-          "storageBucket": "hackuci2019-71642.appspot.com",
-        		};
-  	firebase.initializeApp(config);
-
- 	var database = firebase.database().ref();
-
-
-  return_summary = () => {
- 	database.child("yt_urls").child(id).child('summary').on("value", function(snap){
-		summary = snap.val();
-		console.log(summary);
-	});
- }
- return_summary();
-
 
 //VIDEO CANVAS////////////////////////////////////////////////////////////////////////////////////////////////
       		var video = document.querySelector("#videoElement");
 var img = document.querySelector("#screenshot");
 var snapshots = [];
-if (navigator.mediaDevices.getUserMedia) {
+if (navigator.mediaDevices.getUserMedia) {       
     navigator.mediaDevices.getUserMedia({video: true})
   .then(function(stream) {
     video.srcObject = stream;
@@ -127,8 +113,7 @@ $.ajax({
 
 
 produce_end_results = (response) => {
-  return_summary();
-  let summaryData = [summary.anger, summary.content, summary.disgust, summary.fear, summary.happiness, summary.neutral, summary.sadness, summary.surprise];
+
 	let personalData = [response.anger.avg, response.contempt.avg, response.disgust.avg, response.fear.avg, response.happiness.avg, response.neutral.avg, response.sadness.avg, response.surprise.avg];
 	let high_happy_url = response.happiness.highest.img_url;
 	let high_happy_timestamp = response.happiness.highest.timestamp;
@@ -185,37 +170,35 @@ var myChart = new Chart(ctx, {
 //SUMMARY GRAPH////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	new Chart(document.getElementById("summarySpiderGraph"), {
     type: 'radar',
-
     data: {
-      labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
       datasets: [
         {
-          label: "You",
+          label: "1950",
           fill: true,
           backgroundColor: "rgba(179,181,198,0.2)",
           borderColor: "rgba(179,181,198,1)",
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(179,181,198,1)",
-          data: personalData
+          data: [8.77,55.61,21.69,6.62,6.82]
         }, {
-          label: "HackUCI",
+          label: "2050",
           fill: true,
           backgroundColor: "rgba(255,99,132,0.2)",
           borderColor: "rgba(255,99,132,1)",
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(255,99,132,1)",
           pointBorderColor: "#fff",
-          data: summaryData
+          data: [25.48,54.16,7.61,8.06,4.45]
         }
       ]
     },
     options: {
       title: {
         display: true,
-        text: 'You vs. HackUCI'
+        text: 'Distribution in % of world population'
       }
     }
-
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -240,7 +223,7 @@ run_capture = (state) => {
     data: JSON.stringify(timestamp_to_imgur),
     dataType: 'json',
     success: function(response) {
-
+        
             console.log(JSON.stringify(response));
         	produce_end_results(response);
     }
@@ -252,21 +235,22 @@ run_capture = (state) => {
 	let mod = currentTime % 4;
 
 	if(time < 30)
-	mod = currentTime % 3;
+	mod = currentTime % 2;
 
-	
+	//DEMONSTRATION PURPOSES
+	mod = currentTime % 8;
 
 
 	console.log("mod: " + mod);
 
-	//every 4 seconds, perform a capture
+	//every 4 seconds, perform a capture 
 		if(mod == 0)
 		{
 			capture(video, img, currentTime);
 		}
 
 	}
-
+	
 
 }
 
@@ -285,3 +269,6 @@ $( "#searchClicked" ).click(function(){
 	window.location.replace('/main.html?id=' + url.searchParams.get("v"));
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
