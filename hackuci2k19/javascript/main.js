@@ -260,7 +260,7 @@ run_capture = (state) => {
     dataType: 'json',
     success: function(response) {
 			if (jQuery.isEmptyObject(response['timestamps'])){
-
+				alert("Cannot analyze your face. Please makes sure your area is free of reflections and refresh the page.")
 			}
             console.log(JSON.stringify(response));
         	produce_end_results(response);
