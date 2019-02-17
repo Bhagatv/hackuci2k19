@@ -26,12 +26,12 @@
  	var database = firebase.database().ref();
 
 function pad(num) {
-    
+
     var s = num+"";
     //while (s.length < 5) s =  s + "0";
     return s + "%";
-    
-    
+
+
 }
 
 $(".emojiText").text("N/A");
@@ -50,7 +50,7 @@ $(".emojiText").text("N/A");
     summary1.sadness = (Math.round(summary1.sadness * 10000) / 100);
     summary1.surprise = (Math.round(summary1.surprise * 10000) / 100);
 
-    
+
     $("#angryEmoji").text(pad(summary1.anger));
   $("#contemptEmoji").text(pad(summary1.contempt));
   $("#disgustEmoji").text(pad(summary1.disgust));
@@ -60,7 +60,7 @@ $(".emojiText").text("N/A");
   $("#sadEmoji").text(pad(summary1.sadness));
   $("#surpriseEmoji").text(pad(summary1.surprise));
 
-  
+
 	});
  }
  return_summary();
@@ -278,7 +278,8 @@ document.getElementById("navlink2").style.opacity = 1;
 document.getElementById("navlink3").style.opacity = 1;
 
 document.getElementById("highSadness").src = high_sadness_url;
-
+document.getElementById("loader").style.transition = "visibility 0.5s";
+document.getElementById("loader").style.visibility = "hidden";
 
 
 }
@@ -287,6 +288,10 @@ document.getElementById("highSadness").src = high_sadness_url;
 run_capture = (state) => {
 	console.log(state);
 	if(state == 0){
+		document.getElementById("loader").style.visibility = "visible";
+
+		document.getElementById("loader").style.webkitTransform = "rotate(5000deg)";
+
 		clearInterval(t);
 		$.ajax({
     url: 'http://60debd7d.ngrok.io/',

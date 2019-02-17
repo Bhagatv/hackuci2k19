@@ -10,6 +10,7 @@ width: 300px;
 }
 #summary-container{
 	margin-top: 8px;
+    width:250px;
 }
 
 .emoji{
@@ -42,7 +43,7 @@ width: 300px;
 
 }
 #video-container {
-
+    width:250px;
 }
 #personal-bar-section, #summary-radar-section, #moments{
 	display:none;
@@ -140,4 +141,21 @@ h1{
 
 #navlink1, #navlink2, #navlink3{
 	opacity:0;
+}
+
+#loader{
+    display: block;
+    margin-top: 40px;
+    margin-left: 450px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/Logo.png);
+    background-position: center;
+    background-size: cover;
+    transition: transform 3s;
+    visibility:hidden;
+}
+
+.emojiText{
+    font-size:12px;
 }
