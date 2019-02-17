@@ -179,7 +179,7 @@ var myChart = new Chart(ctx, {
 //SUMMARY GRAPH////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	new Chart(document.getElementById("summarySpiderGraph"), {
     type: 'radar',
-<<<<<<< HEAD
+
     data: {
       labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
       datasets: [
@@ -209,23 +209,7 @@ var myChart = new Chart(ctx, {
         text: 'You vs. HackUCI'
       }
     }
-=======
-    data: {labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness"],
-    	datasets: [
-                {
-                    label: "You",
-                    fillColor: "rgba(0,140,232,.4)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    data: personalData
 
-
-                }
-            ]
-	},
-    options: {}
->>>>>>> 7642379b93525e6d9923ba5e69ecbb926d9b94b3
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
