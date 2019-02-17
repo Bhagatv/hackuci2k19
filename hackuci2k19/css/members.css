@@ -23,6 +23,7 @@
 .profile{
     position: relative;
     display: inline;
+    color:white;
 }
 
 .pic{
@@ -37,15 +38,38 @@ h1{
 
 h2{
     font-size: 48px;
-    font-style: italic;
+    /*font-style: italic;*/
+    font-weight:100;
 }
 
 h3{
     font-size: 36px;
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-weight:100;
 }
 
 #content{
-    background-image: url("https://drive.google.com/file/d/1UQidVdyYys5PLUSaaZCZkp4eZRQaRfH1/view?fbclid=IwAR2MYILGpTBvAPrhrWWsE742mKsetKmS5HC7gaAOmBFycnQ0Oz9hOvLOhekhttps://drive.google.com/file/d/1UQidVdyYys5PLUSaaZCZkp4eZRQaRfH1/view?fbclid=IwAR2MYILGpTBvAPrhrWWsE742mKsetKmS5HC7gaAOmBFycnQ0Oz9hOvLOhek");
-    background: linear-gradient(-45deg, #35577D, #141E30);
+
+
+}
+.profile-container {
+    margin-top:30px;
+}
+header h2{
+    color:white;
+}
+#content-div::before{
+  content: "";
+  background: url("../images/Error.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+
+
 }
