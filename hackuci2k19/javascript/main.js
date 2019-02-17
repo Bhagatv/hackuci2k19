@@ -68,7 +68,7 @@ $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'post',
     headers: {
-        Authorization: 'Client-ID 040e94cc45d44df'
+        Authorization: 'Client-ID df948eca61ead59'
     },
     data: {
         image: lol
