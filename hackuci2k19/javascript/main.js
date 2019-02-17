@@ -26,9 +26,12 @@
  	var database = firebase.database().ref();
 
 function pad(num) {
+    
     var s = num+"";
-    while (s.length < 5) s =  s + "0";
+    //while (s.length < 5) s =  s + "0";
     return s + "%";
+    
+    
 }
 
 $(".emojiText").text("N/A");
