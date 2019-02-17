@@ -252,10 +252,9 @@ run_capture = (state) => {
 	let mod = currentTime % 4;
 
 	if(time < 30)
-	mod = currentTime % 2;
+	mod = currentTime % 3;
 
-	//DEMONSTRATION PURPOSES
-	mod = currentTime % 8;
+	
 
 
 	console.log("mod: " + mod);
