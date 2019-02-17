@@ -83,7 +83,8 @@ html {
     transform-origin:0;
     position:absolute;
     height:100%;
-    background-color: rgba(174,	198	,207,0.5);
+    background-color: #e9ecef;
+    #e9ecef
 }
 #landing::before{
     content:"";
@@ -98,5 +99,5 @@ html {
     transform-origin:0;
     position:absolute;
     height:100%;
-    background-color:#e9ecef;
+    background-color:rgba(174,	198	,207,0.75);
 }
