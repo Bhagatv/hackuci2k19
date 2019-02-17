@@ -29,6 +29,7 @@
 .pic{
     width: 240px;
     height: 320px;
+    border: 4px solid white;
 }
 
 h1{
@@ -48,10 +49,6 @@ h3{
     font-weight:100;
 }
 
-#content{
-
-
-}
 .profile-container {
     margin-top:30px;
 }
@@ -63,7 +60,7 @@ header h2{
   background: url("../images/Error.png");
   background-position: center;
   background-size: cover;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   top: 0;
   left: 0;
   bottom: 0;
