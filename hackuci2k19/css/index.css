@@ -1,5 +1,5 @@
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
   }
 
 #landing-info{
@@ -109,4 +109,13 @@ html {
     position:absolute;
     height:100%;
     background-color:rgba(174,	198	,207,0.75);
+}
+
+#card-p1, #card-p2, #card-p3{
+    transition: color 1s ease;
+}
+#icon-cont1:hover > #card-p1,
+#icon-cont2:hover > #card-p2,
+#icon-cont3:hover > #card-p3{
+    color:black !important;
 }
