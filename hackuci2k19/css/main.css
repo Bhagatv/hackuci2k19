@@ -5,10 +5,15 @@ html {
 width: 300px;
 
 }
+.emoji-row{
+	margin-top: 2px;
+}
+#summary-container{
+	margin-top: 8px;
+}
 
-img{
-	height: 40px !important;
-
+.emoji{
+	height: 40px;
 }
 .navbar{
     background-color: #003366 !important;

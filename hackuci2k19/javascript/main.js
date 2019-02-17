@@ -10,6 +10,7 @@
 	var timestamp_to_imgur = {};
 	timestamp_to_imgur[id] = {};
   var summary = {};
+  var summaryFound = false;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Initialize Firebase
@@ -24,14 +25,43 @@
 
  	var database = firebase.database().ref();
 
+function pad(num) {
+    var s = num+"";
+    while (s.length < 5) s =  s + "0";
+    return s + "%";
+}
 
+$(".emojiText").text("N/A");
   return_summary = () => {
  	database.child("yt_urls").child(id).child('summary').on("value", function(snap){
 		summary = snap.val();
-		console.log(summary);
+		console.log(snap.val());
+
+    summary.anger = (Math.round(summary.anger * 10000) / 100);
+    summary.contempt = (Math.round(summary.contempt * 10000) / 100);
+    summary.disgust = (Math.round(summary.disgust * 10000) / 100);
+    summary.fear = (Math.round(summary.fear * 10000) / 100);
+    summary.happiness = (Math.round(summary.happiness * 10000) / 100);
+    summary.neutral = (Math.round(summary.neutral * 10000) / 100);
+    summary.sadness = (Math.round(summary.sadness * 10000) / 100);
+    summary.surprise = (Math.round(summary.surprise * 10000) / 100);
+
+    
+    $("#angryEmoji").text(pad(summary.anger));
+  $("#contemptEmoji").text(pad(summary.contempt));
+  $("#disgustEmoji").text(pad(summary.disgust));
+  $("#fearEmoji").text(pad(summary.fear));
+  $("#happinessEmoji").text(pad(summary.happiness));
+  $("#neutralEmoji").text(pad(summary.neutral));
+  $("#sadEmoji").text(pad(summary.sadness));
+  $("#surpriseEmoji").text(pad(summary.surprise));
+
+  
 	});
  }
  return_summary();
+
+
 
 
 //VIDEO CANVAS////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,7 +98,7 @@ $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'post',
     headers: {
-        Authorization: 'Client-ID 040e94cc45d44df'
+        Authorization: 'Client-ID df948eca61ead59'
     },
     data: {
         image: lol
