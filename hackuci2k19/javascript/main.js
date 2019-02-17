@@ -100,8 +100,8 @@ $.ajax({
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          height: '487',
-          width: '800',
+          height: '400',
+          width: '657',
           videoId: id,
           events: {
             'onReady': onPlayerReady,
@@ -168,11 +168,13 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+		maintainAspectRatio : false,
         scales: {
             yAxes: [{
                 ticks: {
                 	min: 0,
            			max: 1,
+					stepSize: 0.2,
                     beginAtZero:true
                 }
             }]
@@ -210,6 +212,12 @@ var myChart = new Chart(ctx, {
       ]
     },
     options: {
+		maintainAspectRatio : false,
+		scale: {
+			ticks:{
+				 stepSize: 0.2
+			}
+		},
       title: {
         display: true,
         text: 'You vs. HackUCI'
@@ -223,6 +231,16 @@ var myChart = new Chart(ctx, {
 console.log("High URL: " + high_happy_url);
 console.log("Sad URL: " + high_sadness_url);
 document.getElementById("highHappy").src = high_happy_url;
+document.getElementById("personal-bar-section").style.display = "flex";
+document.getElementById("summary-radar-section").style.display = "flex";
+document.getElementById("moments").style.display = "flex";
+document.getElementById("navlink1").style.transition = "opacity 1s";
+document.getElementById("navlink2").style.transition = "opacity 1s";
+document.getElementById("navlink3").style.transition = "opacity 1s";
+document.getElementById("navlink1").style.opacity = 1;
+document.getElementById("navlink2").style.opacity = 1;
+document.getElementById("navlink3").style.opacity = 1;
+
 document.getElementById("highSadness").src = high_sadness_url;
 
 
@@ -240,7 +258,9 @@ run_capture = (state) => {
     data: JSON.stringify(timestamp_to_imgur),
     dataType: 'json',
     success: function(response) {
+			if (jQuery.isEmptyObject(response['timestamps'])){
 
+			}
             console.log(JSON.stringify(response));
         	produce_end_results(response);
     }
@@ -252,10 +272,9 @@ run_capture = (state) => {
 	let mod = currentTime % 4;
 
 	if(time < 30)
-	mod = currentTime % 2;
+	mod = currentTime % 3;
 
-	//DEMONSTRATION PURPOSES
-	mod = currentTime % 8;
+	
 
 
 	console.log("mod: " + mod);

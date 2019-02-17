@@ -37,17 +37,25 @@
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-light justify-content-between">
+    <nav class="navbar fixed-top navbar-light bg-light justify-content-between">
 
-  <a class="navbar-brand"><img src="./images/LennyFace.jpg" width="30" height="30" alt="">ChickenWatch</a>
-  <form class="form-inline" id="searchForm">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchClicked">Search</button>
-  </form>
-</nav>
+        <a class="col-lg-2 navbar-brand"><img class = 'logo' src="./images/Logo.png" width="36" height="36" alt=""><div class = 'page-title'>Emocean</div></a>
+        <ul class="nav nav-pills">
+      <li id = 'navlink1' class="nav-item"><a class="nav-link" href="#personal-bar-section">Personal Results</a></li>
+      <li id = 'navlink2' class="nav-item"><a class="nav-link" href="#summary-radar-section">Compared Results</a></li>
+      <li id = 'navlink3' class="nav-item"><a class="nav-link" href="#moments">Captured Moments</a></li>
+    </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+            <button class="btn btn-info my-2 my-sm-0" type="button" id="searchClicked">Search</button>
+        </form>
+    </nav>
 
-<div id = 'player-container' class="container text-center">
-<div id="player"></div>
+
+<section id = 'video'>
+<div class="container text-center"><div class="overall-cont">
+<div id="player-container" class="text-center">
+<iframe id="player" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="657" height="400" src="https://www.youtube.com/embed/n_MowduhHE8?enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A8000&amp;widgetid=1"></iframe>
 
 <div class="row">
 
@@ -58,17 +66,38 @@
     <video autoplay="true" id="videoElement">
     </video>
 </div>
+    </div></div>
+</section>
 
-<div class="container">
+
+
+
+<section id = 'personal-bar-section'>
 <canvas id="personalBarGraph" width="400" height="400"></canvas>
-<canvas id="summarySpiderGraph" width="400" height="400"></canvas>
+<div class = 'graph-text'>
+    This graph highlights something.
+</div>
+</section>
 
+<section id = 'summary-radar-section'>
+<canvas id="summarySpiderGraph" width="400" height="400"></canvas>
+<div class = 'graph-text'>
+    This graph highlights something.
+</div>
+</section>
+
+<section id ='moments'>
+<div class = 'container-fluid text-center'>
 <h1>Happiest Moment</h1>
 <img id = "highHappy" src=""></img>
+</div>
+<div class = 'container-fluid text-center'>
 <h1>Saddest Moment</h1>
 <img id = "highSadness" src=""></img>
-
 </div>
+</section>
+
+
 
 
 <!-- import main.js -->

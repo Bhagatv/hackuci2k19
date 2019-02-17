@@ -2,25 +2,129 @@
 width: 300px;
 
 }
-.row{
-	border: solid;
-	
+.navbar{
+    background-color: #003366 !important;
 }
+
+.navbar-brand{
+    color:white !important;
+}
+.page-title{
+    display:inline-block;
+    padding-left:10px;
+    font-size:28px;
+}
+
+.logo{
+    margin-bottom:10px;
+}
+
 #player{
 	margin-top:40px;
- 
+
 }
 
+.overall-cont{
+	display:inline-flex;
+
+}
 #video-container {
-    margin: 0px auto;
-    width: 500px;
-    height: 375px;
-    border: 10px #333 solid;
+
+}
+#personal-bar-section, #summary-radar-section, #moments{
+	display:none;
 }
 #videoElement {
-    width: 500px;
-    height: 375px;
-    background-color: #666;
+	margin-top:40px;
+	max-width:250px;
+	max-height:150px;
 }
 
+#player-container{
+	display:inline-block;
+	margin-right:20px;
+}
 
+canvas{
+	max-height:500px;
+	max-width:50%;
+}
+#highHappy, #highSadness{
+	max-width:75%;
+}
+#video{
+	margin-top:100px;
+	min-height:700px;
+
+}
+
+#video::before{
+    content:"";
+    z-index:-900;
+    top:0;
+    left:0;
+    right:0;
+    min-height:800px;
+
+    overflow:hidden;
+    transform:skewY(-5deg);
+    transform-origin:0;
+    position:absolute;
+    height:100%;
+    background-color:rgba(174,	198	,207,0.75);
+}
+#personalBarGraph{
+	margin-left:100px;
+}
+#summarySpiderGraph{
+	max-width:75%;
+}
+#summary-radar-section, #personal-bar-section{
+	min-height:600px;
+	margin-top:100px;
+	position:relative;
+}
+#personal-bar-section::before{
+    content:"";
+    z-index:-900;
+    top:-100px;
+    left:0;
+    right:0;
+    min-height:800px;
+
+    overflow:hidden;
+    transform:skewY(-5deg);
+    transform-origin:0;
+    position:absolute;
+    height:100%;
+    background-color: #e9ecef;
+}
+
+.graph-text{
+	margin-top:250px;
+	margin-right:90px;
+	font-size:18px;
+	font-weight:100;
+}
+
+#moments{
+	background: rgba(174,	198	,207,1);
+	min-height:800px;
+	padding:40px;
+}
+h1{
+	color:white;
+	font-weight:200;
+}
+.nav-link{
+	color:white;
+	font-weight:100;
+
+}
+.nav-link:hover{
+	color:lightgrey;
+}
+
+#navlink1, #navlink2, #navlink3{
+	opacity:0;
+}
