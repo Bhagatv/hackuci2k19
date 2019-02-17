@@ -4,6 +4,7 @@
 	var urlParams = new URLSearchParams(window.location.search);
 	var time = 0;
 	var id = urlParams.get("id");
+	console.log(id);
 	var youtube_player_state = -1;
 	var empty = {};
 	var timestamp_to_imgur = {};
@@ -274,7 +275,7 @@ run_capture = (state) => {
 	if(time < 30)
 	mod = currentTime % 3;
 
-	
+
 
 
 	console.log("mod: " + mod);
