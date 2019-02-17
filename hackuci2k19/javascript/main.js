@@ -37,27 +37,28 @@ function pad(num) {
 $(".emojiText").text("N/A");
   return_summary = () => {
  	database.child("yt_urls").child(id).child('summary').on("value", function(snap){
-		summary = snap.val();
+		var summary1 = snap.val();
+    summary = snap.val();
 		console.log(snap.val());
 
-    summary.anger = (Math.round(summary.anger * 10000) / 100);
-    summary.contempt = (Math.round(summary.contempt * 10000) / 100);
-    summary.disgust = (Math.round(summary.disgust * 10000) / 100);
-    summary.fear = (Math.round(summary.fear * 10000) / 100);
-    summary.happiness = (Math.round(summary.happiness * 10000) / 100);
-    summary.neutral = (Math.round(summary.neutral * 10000) / 100);
-    summary.sadness = (Math.round(summary.sadness * 10000) / 100);
-    summary.surprise = (Math.round(summary.surprise * 10000) / 100);
+    summary1.anger = (Math.round(summary1.anger * 10000) / 100);
+    summary1.contempt = (Math.round(summary1.contempt * 10000) / 100);
+    summary1.disgust = (Math.round(summary1.disgust * 10000) / 100);
+    summary1.fear = (Math.round(summary1.fear * 10000) / 100);
+    summary1.happiness = (Math.round(summary1.happiness * 10000) / 100);
+    summary1.neutral = (Math.round(summary1.neutral * 10000) / 100);
+    summary1.sadness = (Math.round(summary1.sadness * 10000) / 100);
+    summary1.surprise = (Math.round(summary1.surprise * 10000) / 100);
 
     
-    $("#angryEmoji").text(pad(summary.anger));
-  $("#contemptEmoji").text(pad(summary.contempt));
-  $("#disgustEmoji").text(pad(summary.disgust));
-  $("#fearEmoji").text(pad(summary.fear));
-  $("#happinessEmoji").text(pad(summary.happiness));
-  $("#neutralEmoji").text(pad(summary.neutral));
-  $("#sadEmoji").text(pad(summary.sadness));
-  $("#surpriseEmoji").text(pad(summary.surprise));
+    $("#angryEmoji").text(pad(summary1.anger));
+  $("#contemptEmoji").text(pad(summary1.contempt));
+  $("#disgustEmoji").text(pad(summary1.disgust));
+  $("#fearEmoji").text(pad(summary1.fear));
+  $("#happinessEmoji").text(pad(summary1.happiness));
+  $("#neutralEmoji").text(pad(summary1.neutral));
+  $("#sadEmoji").text(pad(summary1.sadness));
+  $("#surpriseEmoji").text(pad(summary1.surprise));
 
   
 	});
@@ -219,7 +220,8 @@ var myChart = new Chart(ctx, {
 
 
 //SUMMARY GRAPH////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	new Chart(document.getElementById("summarySpiderGraph"), {
+	console.log(summaryData);
+  new Chart(document.getElementById("summarySpiderGraph"), {
     type: 'radar',
 
     data: {
