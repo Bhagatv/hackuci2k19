@@ -1,14 +1,5 @@
-// Initialize Firebase
-  // TODO: Replace with your project's customized code snippet
- 
- /** var config = {
-          "apiKey": "AIzaSyALHsoFjWeyBkIH0Ta2npk1VhDljU6axCk",
-          "authDomain": "hackuci2019-71642.firebaseapp.com",
-          "databaseURL": "https://hackuci2019-71642.firebaseio.com",
-          "storageBucket": "hackuci2019-71642.appspot.com",
-        };
-  firebase.initializeApp(config);
-**/
+
+
 //receives parameters passed into the URL///////////////////////////////////////////////////////////////////////////
 	var urlParams = new URLSearchParams(window.location.search);
 	var time = 0;
@@ -19,11 +10,29 @@
 	timestamp_to_imgur[id] = {};
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+
+  	var config = {
+          "apiKey": "AIzaSyALHsoFjWeyBkIH0Ta2npk1VhDljU6axCk",
+          "authDomain": "hackuci2019-71642.firebaseapp.com",
+          "databaseURL": "https://hackuci2019-71642.firebaseio.com",
+          "storageBucket": "hackuci2019-71642.appspot.com",
+        		};
+  	firebase.initializeApp(config);
+
+ 	var database = firebase.database().ref();
+
+ 	database.child("yt_urls").child('summary').on("value", function(snap){
+		var summary = snap.val();
+		console.log(summary);
+	});
+
 //VIDEO CANVAS////////////////////////////////////////////////////////////////////////////////////////////////
       		var video = document.querySelector("#videoElement");
 var img = document.querySelector("#screenshot");
 var snapshots = [];
-if (navigator.mediaDevices.getUserMedia) {       
+if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({video: true})
   .then(function(stream) {
     video.srcObject = stream;
@@ -180,8 +189,8 @@ var myChart = new Chart(ctx2, {
                     pointColor: "rgba(151,187,205,1)",
                     pointStrokeColor: "#fff",
                     data: personalData
-                        
-                    
+
+
                 }
             ]
 	},
@@ -210,7 +219,7 @@ run_capture = (state) => {
     data: JSON.stringify(timestamp_to_imgur),
     dataType: 'json',
     success: function(response) {
-        
+
             console.log(JSON.stringify(response));
         	produce_end_results(response);
     }
@@ -230,14 +239,14 @@ run_capture = (state) => {
 
 	console.log("mod: " + mod);
 
-	//every 4 seconds, perform a capture 
+	//every 4 seconds, perform a capture
 		if(mod == 0)
 		{
 			capture(video, img, currentTime);
 		}
 
 	}
-	
+
 
 }
 
@@ -256,6 +265,3 @@ $( "#searchClicked" ).click(function(){
 	window.location.replace('/main.html?id=' + url.searchParams.get("v"));
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
