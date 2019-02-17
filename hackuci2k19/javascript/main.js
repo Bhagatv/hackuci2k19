@@ -41,6 +41,7 @@ $(".emojiText").text("N/A");
     summary = snap.val();
 		console.log(snap.val());
 
+    if(summary1 != null){
     summary1.anger = (Math.round(summary1.anger * 10000) / 100);
     summary1.contempt = (Math.round(summary1.contempt * 10000) / 100);
     summary1.disgust = (Math.round(summary1.disgust * 10000) / 100);
@@ -59,7 +60,7 @@ $(".emojiText").text("N/A");
   $("#neutralEmoji").text(pad(summary1.neutral));
   $("#sadEmoji").text(pad(summary1.sadness));
   $("#surpriseEmoji").text(pad(summary1.surprise));
-
+    }
   
 	});
  }
@@ -97,7 +98,7 @@ ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 var link;
 var lol = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
 
-
+console.log("CAPPTURE NOW BITCH");
 $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'post',
