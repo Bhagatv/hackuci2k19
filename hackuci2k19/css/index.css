@@ -34,7 +34,7 @@ html {
 .icon-container{
     min-width:240px;
     min-height:300px;
-    border:1px solid black;
+    
 }
 
 .card-title{
@@ -71,6 +71,7 @@ html {
 .icons-img{
     height: 240px;
     width: 320px;
+    margin-bottom: 40px;
 }
 
 .card-container{
